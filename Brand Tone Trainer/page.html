@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Tone Trainer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: center;">
+      <div class="badge">
+        <svg class="sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L15 8.5L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L9 8.5L12 2Z"/>
+        </svg>
+        AI-powered brand tone generator
+      </div>
+    </div>
+
+    <h1>Brand Tone Trainer</h1>
+    <p class="subtitle">Enter your brand name to generate tone style, short copy, and vocabulary guide</p>
+
+    <div class="input-section">
+      <div class="input-wrapper">
+        <input type="text" id="brand-input" placeholder="Enter brand or product name, e.g. Apple, Tesla, Nike...">
+        <button class="generate-btn" id="btn-generate">
+          Generate Tone
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="api-key-section">
+        <label class="api-key-label">Google Gemini API Key (Optional)</label>
+        <input type="password" id="api-key" placeholder="AIza... (stored locally, leave empty for template mode)" autocomplete="off">
+        <div class="hint">
+          Get your API key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>
+        </div>
+      </div>
+
+      <div class="saved-brands" id="saved-brands">
+        <span class="saved-label">Saved brands:</span>
+        <div class="saved-list" id="saved-brands-list"></div>
+      </div>
+    </div>
+
+    <div class="error-message" id="error-msg"></div>
+
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <div class="loading-text" id="loading-text">Generating brand tone...</div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="result-card">
+        <h2>Tone Style</h2>
+        <p class="tone-description" id="tone-desc"></p>
+      </div>
+
+      <div class="result-card">
+        <h2>Ready-to-use Short Copy (10 × 3 Tones)</h2>
+        <div id="copy-list"></div>
+      </div>
+
+      <div class="result-card">
+        <h2>Brand Vocabulary Guide</h2>
+        <div class="vocab-grid">
+          <div class="vocab-box">
+            <h3>Suggested Words</h3>
+            <ul id="vocab-suggest"></ul>
+          </div>
+          <div class="vocab-box vocab-avoid">
+            <h3>Words to Avoid</h3>
+            <ul id="vocab-avoid"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card save-section">
+        <button class="save-btn" id="btn-save">Save My Brand Tone</button>
+        <span class="save-status" id="save-status"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
